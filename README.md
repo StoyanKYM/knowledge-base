@@ -59,7 +59,6 @@ knowledge-base/
 │  ├─ courses/
 │  ├─ networking/
 │  ├─ linux/
-│  └─ security/
 ├─ scripts/
 │  ├─ build_index.py              генерира индекса за менюто и търсачката
 │  └─ serve.py                    локален сървър за преглед
