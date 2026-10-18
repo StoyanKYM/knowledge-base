@@ -261,17 +261,6 @@ ipconfig /all
 
 ## 🚀 Първоначален деплой в GitHub Pages
 
-1. Създай празно repo **`knowledge-base`** в GitHub (без README, .gitignore и лиценз).
-2. От папката на проекта:
-
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/StoyanKYM/knowledge-base.git
-   git push -u origin main
-   ```
-
 3. В GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 4. Изчакай workflow-а в таб **Actions** да завърши. Сайтът е на https://stoyankym.github.io/knowledge-base/
 
