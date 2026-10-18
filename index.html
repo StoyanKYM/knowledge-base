@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Base</title>
+  <meta name="description" content="A personal archive of study notes from IT courses and certifications.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      const t = localStorage.getItem("kb-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script src="js/app.js" type="module"></script>
+</head>
+<body>
+  <!-- Top header: full on the home page, compact bar on mobile everywhere -->
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open navigation"></button>
+    <a href="#/" class="brand"><span class="brand-mark"></span>Knowledge Base</a>
+    <nav class="topnav" id="topnav" aria-label="Categories"></nav>
+    <div class="topbar-actions">
+      <button class="search-trigger" data-open-search>
+        <span class="search-icon"></span><span class="search-label">Search notes...</span><kbd class="kbd-hint"></kbd>
+      </button>
+      <button class="icon-btn search-mobile" data-open-search aria-label="Search"></button>
+      <a class="icon-btn github-link" href="https://github.com/StoyanKYM" target="_blank" rel="noopener" aria-label="GitHub"></a>
+      <button class="icon-btn theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <!-- Sidebar: visible on notes/category pages (desktop) and as a drawer on mobile -->
+    <aside class="sidebar" id="sidebar" aria-label="Notes navigation">
+      <div class="sidebar-head">
+        <a href="#/" class="brand"><span class="brand-mark"></span>Knowledge Base</a>
+        <button class="icon-btn drawer-close" id="drawer-close" aria-label="Close navigation"></button>
+      </div>
+      <button class="search-trigger sidebar-search" data-open-search>
+        <span class="search-icon"></span><span class="search-label">Search notes...</span><kbd class="kbd-hint"></kbd>
+      </button>
+      <nav class="sidebar-links">
+        <a href="#/" data-link="home"><span class="ico" data-icon="home"></span>Home</a>
+        <a href="#/about" data-link="about"><span class="ico" data-icon="user"></span>About</a>
+      </nav>
+      <div class="sidebar-label">Categories</div>
+      <nav class="tree" id="tree"></nav>
+      <div class="sidebar-foot">
+        <span id="sidebar-count"></span>
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme"></button>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <main id="main" class="main" tabindex="-1"></main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Knowledge Base</span>
+      <span class="footer-links">
+        <a href="#/about">About</a>
+        <a href="https://github.com/StoyanKYM" target="_blank" rel="noopener">GitHub ↗</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Search dialog -->
+  <div class="search-modal" id="search-modal" hidden>
+    <div class="search-backdrop" data-close-search></div>
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search notes">
+      <div class="search-input-row">
+        <span class="search-icon"></span>
+        <input id="search-input" type="search" placeholder="Search notes, topics, terms..." autocomplete="off" spellcheck="false">
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="search-results" id="search-results"></ul>
+      <div class="search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>Enter</kbd> open</span></div>
+    </div>
+  </div>
+
+  <!-- Image lightbox -->
+  <div class="lightbox" id="lightbox" hidden><img alt=""></div>
+</body>
+</html>

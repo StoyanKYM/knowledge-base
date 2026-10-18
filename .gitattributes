@@ -1,0 +1,15 @@
+# Текстовите файлове се пазят с Unix окончания на редовете (LF) — без предупреждения LF/CRLF в Windows.
+* text=auto eol=lf
+
+# Двоични файлове — Git не ги пипа
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.mp4  binary
+*.webm binary
+*.mov  binary
+*.m4v  binary
+*.pdf  binary

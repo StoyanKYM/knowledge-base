@@ -1,0 +1,7 @@
+{
+  // Pasted / dropped images in a note are saved to images/ next to that note.
+  "markdown.copyFiles.destination": {
+    "**/content/**/*.md": "images/${fileName}"
+  },
+  "markdown.copyFiles.overwriteBehavior": "nameIncrementally"
+}
